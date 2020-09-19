@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" />
+    <title>Text Utils</title>
+</head>
+
+<body>
+    <!-- Navbar Code -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../index">TextUtils.in</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us!</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us!</a>
+                </li>
+            </ul>
+        </div>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+    <!-- Jumbotron Code -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Text Analyzer</h1>
+            <p class="lead">Text analysis is the automated process of understanding and sorting unstructured text, making it easier to manage and mine for valuable insights.</p>
+        </div>
+    </div>
+
+    <!-- Form + Textarea Code -->
+    <div class="container">
+        <form class="form" action="../analyze" method="GET">
+            {% csrf_token %}
+
+            <!-- Textarea Code -->
+            <div class="form-group">
+                <label for="index_textarea">Enter Your Text Below :</label>
+                <textarea class="form-control" id="index_textarea" name="index_textarea" rows="5"></textarea>
+            </div>
+
+            <!-- Remove Punctuation Checkbox -->
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="rp_checkbox" name="rp_checkbox">
+                <label class="custom-control-label" for="rp_checkbox">Remove Punctuations</label>
+            </div>
+
+            <!-- Capitalize First/UpperCase Checkbox -->
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="cf_checkbox" name="cf_checkbox">
+                <label class="custom-control-label" for="cf_checkbox">UpperCase</label>
+            </div>
+
+            <!-- New Line Remover Checkbox -->
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="nlr_checkbox" name="nlr_checkbox">
+                <label class="custom-control-label" for="nlr_checkbox">Remove New Lines</label>
+            </div>
+
+            <!-- Space Remover Checkbox -->
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="sr_checkbox" name="sr_checkbox">
+                <label class="custom-control-label" for="sr_checkbox">Remove Extra Spaces</label>
+            </div>
+
+            <button type="submit" class="btn btn-dark mt-2">Analyze Text</button>
+        </form>
+    </div>
+
+
+    <!-- follow me template -->
+    <footer>
+        <div class="made-with-love">
+            Made with
+            <i>♥</i> by
+            <a target="_blank" href="#">Alfaiz Khan</a>
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="{% static '/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
